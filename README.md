@@ -1,4 +1,4 @@
-# Youflix
+# Youflix [![Build Status](https://travis-ci.org/vmorsell/react-youflix.svg?branch=master)](https://travis-ci.org/vmorsell/react-youflix)
 
 ## 📋 Get started
 
