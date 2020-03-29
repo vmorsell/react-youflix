@@ -5,7 +5,6 @@ import { PlayerScreenLink } from '../../screens/playerScreen';
 
 import styles from './featuredMovie.module.scss';
 
-import { Movie } from '../../types';
 export interface Props {
   item: Movie;
 }

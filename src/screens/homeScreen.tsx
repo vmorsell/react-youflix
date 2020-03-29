@@ -3,8 +3,6 @@ import { RouteComponentProps } from '@reach/router';
 
 import { FeaturedMovie, Layout, Playlists } from '../components';
 
-import { Playlist, Movie } from '../types';
-
 import config from '../config/config';
 
 interface Props extends RouteComponentProps {

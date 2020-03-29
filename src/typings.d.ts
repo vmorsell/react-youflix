@@ -4,7 +4,7 @@ interface Thumbnail {
   width: number;
 }
 
-export interface Playlist {
+interface Playlist {
   channelId?: string;
   channelTitle?: string;
   description?: string;
@@ -22,7 +22,7 @@ export interface Playlist {
   title: string;
 }
 
-export interface Movie {
+interface Movie {
   channelId?: string;
   channelTitle?: string;
   description?: string;

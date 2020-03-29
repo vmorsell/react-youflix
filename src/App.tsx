@@ -8,13 +8,11 @@ import PlayerScreen from './screens/playerScreen';
 import LoadingScreen from './screens/loadingScreen';
 import ErrorScreen from './screens/errorScreen';
 
-import { Playlist, Movie } from './types';
-
 const App = () => {
   const [playlists, setPlaylists] = useState<Playlist[]>([]);
   const [movies, setMovies] = useState<Movie[]>([]);
   const [featuredMovie, setFeaturedMovie] = useState<Movie | undefined>(
-    undefined,
+    undefined
   );
   const [dataHasLoaded, setDataHasLoaded] = useState(false);
   const [error, setError] = useState<any>(false);

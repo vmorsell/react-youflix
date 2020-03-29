@@ -4,7 +4,6 @@ import Item from './item';
 
 import styles from './horizontalMovieScroller.module.scss';
 
-import { Movie } from '../../types';
 export interface Props {
   items: Movie[];
   title: string;

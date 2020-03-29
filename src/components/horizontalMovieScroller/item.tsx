@@ -5,8 +5,6 @@ import { Icon } from '../../components';
 
 import styles from './item.module.scss';
 
-import { Movie } from '../../types';
-
 const Item = ({ duration, id, isNew, tags, thumbnails, title }: Movie) => {
   const isNewMarker = isNew ? <span className={styles.isNew}>New</span> : null;
 
