@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Router, Location } from '@reach/router';
 
-import { getPlaylists, getPlaylistItems } from './api/youtube';
+import { getPlaylists, getPlaylistItems } from './data/youtube';
 import {
   HomeScreen,
   PlayerScreen,
