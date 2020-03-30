@@ -20,7 +20,6 @@ export const Header: React.FC<HeaderProps> = ({
 
   useEffect(() => {
     if (drawBehind) {
-      console.log('Register to scroll');
       window.addEventListener('scroll', () => handleScroll());
 
       return (): void => {

@@ -9,7 +9,7 @@ export interface ErrorScreenProps extends RouteComponentProps {
 export const ErrorScreen: React.FC<ErrorScreenProps> = (
   props: ErrorScreenProps
 ) => {
-  console.log(props.error);
+  console.error(props.error);
   switch (props.error.status) {
     case 403:
       return (
