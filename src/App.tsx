@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Router, Location } from '@reach/router';
+import { Router, RouterProps, Location } from '@reach/router';
 
 import { getPlaylists, getPlaylistItems } from './data/youtube';
 import {
@@ -50,7 +50,7 @@ export const App: React.FC = () => {
     });
   }, []);
 
-  const Routes = (props: any) => (
+  const Routes = (props: RouterProps): JSX.Element => (
     <Router {...props}>
       <HomeScreen
         path="/"
