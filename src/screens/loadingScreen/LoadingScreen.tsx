@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import { RouteComponentProps } from '@reach/router';
-
 import { Logotype } from '../../components';
-
 import styles from './loadingScreen.module.scss';
-
 import config from '../../config/config';
 
-interface Props extends RouteComponentProps {
+export interface LoadingScreenProps extends RouteComponentProps {
   dataHasLoaded: boolean;
   dismissLoadingScreen: CallableFunction;
 }
 
-const NotFoundScreen = (props: Props) => {
+export const LoadingScreen: React.FC<LoadingScreenProps> = (
+  props: LoadingScreenProps
+) => {
   const showOnlyFirstLetter = !props.dataHasLoaded;
 
   useEffect(() => {
@@ -30,5 +29,3 @@ const NotFoundScreen = (props: Props) => {
     </div>
   );
 };
-
-export default NotFoundScreen;

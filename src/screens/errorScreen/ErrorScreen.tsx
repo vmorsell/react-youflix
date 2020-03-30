@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link, RouteComponentProps } from '@reach/router';
-
 import styles from './errorScreen.module.scss';
 
-interface Props extends RouteComponentProps {
+export interface ErrorScreenProps extends RouteComponentProps {
   error: any;
 }
 
-const ErrorScreen = (props: Props) => {
+export const ErrorScreen: React.FC<ErrorScreenProps> = (
+  props: ErrorScreenProps
+) => {
   console.log(props.error);
   switch (props.error.status) {
     case 403:
@@ -44,5 +45,3 @@ const ErrorScreen = (props: Props) => {
       );
   }
 };
-
-export default ErrorScreen;

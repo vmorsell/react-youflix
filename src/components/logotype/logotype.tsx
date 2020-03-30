@@ -1,15 +1,16 @@
 import React from 'react';
-
 import { Link } from '@reach/router';
-
 import styles from './logotype.module.scss';
 
-export interface Props {
+export interface LogotypeProps {
   text: string;
   showOnlyFirstLetter?: boolean;
 }
 
-const Logotype = ({ text, showOnlyFirstLetter = false }: Props) => {
+export const Logotype: React.FC<LogotypeProps> = ({
+  text,
+  showOnlyFirstLetter = false,
+}: LogotypeProps) => {
   const letters = text.toUpperCase().split('');
   const maxOffset = Math.floor(letters.length / 2);
   const slope = 10;
@@ -26,7 +27,7 @@ const Logotype = ({ text, showOnlyFirstLetter = false }: Props) => {
     const scale = 1 + Math.pow(Math.abs(offset), 2) * 0.01;
 
     return (
-      <div className={styles.letter}>
+      <div key={index} className={styles.letter}>
         <span
           style={{
             transform: `rotateY(${angle}deg) scaleY(${scale})`,
@@ -51,5 +52,3 @@ const Logotype = ({ text, showOnlyFirstLetter = false }: Props) => {
     </Link>
   );
 };
-
-export default Logotype;

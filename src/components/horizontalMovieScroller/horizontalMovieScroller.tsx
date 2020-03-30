@@ -1,15 +1,16 @@
 import React from 'react';
-
-import Item from './item';
-
+import { Item } from './Item';
 import styles from './horizontalMovieScroller.module.scss';
 
-export interface Props {
+export interface HorizontalMovieScrollerProps {
   items: Movie[];
   title: string;
 }
 
-const HorizontalMovieScroller = ({ items, title }: Props) => {
+export const HorizontalMovieScroller: React.FC<HorizontalMovieScrollerProps> = ({
+  items,
+  title,
+}: HorizontalMovieScrollerProps) => {
   const itemComponents = items
     ? items.map((item: Movie, index: number) => (
         <Item
@@ -37,5 +38,3 @@ const HorizontalMovieScroller = ({ items, title }: Props) => {
     </div>
   );
 };
-
-export default HorizontalMovieScroller;

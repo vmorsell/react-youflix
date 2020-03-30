@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
-
 import { Logotype } from '../../components';
-import Navigation from './navigation';
-
+import { Navigation } from './Navigation';
 import styles from './header.module.scss';
 
-export interface Props {
+export interface HeaderProps {
   drawBehind: boolean;
   siteTitle: string;
 }
 
-const Header = ({ drawBehind = false, siteTitle }: Props) => {
+export const Header: React.FC<HeaderProps> = ({
+  drawBehind = false,
+  siteTitle,
+}: HeaderProps) => {
   const [scrollY, setScrollY] = useState(window.scrollY);
 
-  const handleScroll = () => {
+  const handleScroll = (): void => {
     setScrollY(window.scrollY);
   };
 
@@ -22,7 +23,7 @@ const Header = ({ drawBehind = false, siteTitle }: Props) => {
       console.log('Register to scroll');
       window.addEventListener('scroll', () => handleScroll());
 
-      return () => {
+      return (): void => {
         window.removeEventListener('scroll', () => handleScroll());
       };
     }
@@ -43,5 +44,3 @@ const Header = ({ drawBehind = false, siteTitle }: Props) => {
     </header>
   );
 };
-
-export default Header;

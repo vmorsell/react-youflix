@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Router, Location, navigate } from '@reach/router';
+import { Router, Location } from '@reach/router';
 
 import { getPlaylists, getPlaylistItems } from './api/youtube';
+import {
+  HomeScreen,
+  PlayerScreen,
+  LoadingScreen,
+  ErrorScreen,
+} from './screens';
 
-import HomeScreen from './screens/homeScreen';
-import PlayerScreen from './screens/playerScreen';
-import LoadingScreen from './screens/loadingScreen';
-import ErrorScreen from './screens/errorScreen';
-
-const App = () => {
+export const App: React.FC = () => {
   const [playlists, setPlaylists] = useState<Playlist[]>([]);
   const [movies, setMovies] = useState<Movie[]>([]);
   const [featuredMovie, setFeaturedMovie] = useState<Movie | undefined>(
@@ -18,24 +19,24 @@ const App = () => {
   const [error, setError] = useState<any>(false);
   const [loadingScreenDismissed, setLoadingScreenDismissed] = useState(false);
 
-  const dismissLoadingScreen = () => {
+  const dismissLoadingScreen = (): void => {
     setLoadingScreenDismissed(true);
   };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       try {
-        let playlists: Playlist[] = await getPlaylists();
+        const playlists: Playlist[] = await getPlaylists();
         setPlaylists(playlists);
 
-        let movies: Movie[] = [];
+        const movies: Movie[] = [];
         for (const key in playlists) {
           const items: Movie[] = await getPlaylistItems(playlists[key].id);
           movies.push(...items);
         }
         setMovies(movies);
 
-        const featuredMovie: Movie | undefined = movies.find(movie => {
+        const featuredMovie: Movie | undefined = movies.find((movie) => {
           return movie.id === process.env.REACT_APP_YOUTUBE_FEATURED_VIDEO_ID;
         });
         setFeaturedMovie(featuredMovie);
@@ -64,7 +65,7 @@ const App = () => {
   if (dataHasLoaded && loadingScreenDismissed && !error) {
     return (
       <Location>
-        {({ location }) => {
+        {({ location }): JSX.Element => {
           const { oldLocation } = location.state || {};
           return (
             <>
@@ -79,12 +80,10 @@ const App = () => {
     return (
       <LoadingScreen
         dataHasLoaded={dataHasLoaded}
-        dismissLoadingScreen={() => dismissLoadingScreen()}
+        dismissLoadingScreen={(): void => dismissLoadingScreen()}
       />
     );
   } else {
     return <ErrorScreen error={error} />;
   }
 };
-
-export default App;

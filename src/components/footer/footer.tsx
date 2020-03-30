@@ -1,13 +1,15 @@
 import React from 'react';
-
 import styles from './footer.module.scss';
 
-export interface Props {
+export interface FooterProps {
   publisher: string;
   copyrightFromYear: number;
 }
 
-const Footer = ({ publisher, copyrightFromYear }: Props) => {
+export const Footer: React.FC<FooterProps> = ({
+  publisher,
+  copyrightFromYear,
+}: FooterProps) => {
   const year = new Date().getFullYear();
   const copyrightYears =
     copyrightFromYear === year ? year : copyrightFromYear + '-' + year;
@@ -16,7 +18,11 @@ const Footer = ({ publisher, copyrightFromYear }: Props) => {
     <footer className={styles.footer}>
       <p>
         YouFlix is made just for fun and is open sourced at{' '}
-        <a href="https://github.com/vmorsell/react-youflix" target="_blank">
+        <a
+          href="https://github.com/vmorsell/react-youflix"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           GitHub
         </a>
         .
@@ -27,5 +33,3 @@ const Footer = ({ publisher, copyrightFromYear }: Props) => {
     </footer>
   );
 };
-
-export default Footer;

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from '@reach/router';
-
 import styles from './navigation.module.scss';
 
-const Navigation = () => (
+export const Navigation: React.FC = () => (
   <nav className={styles.navigation}>
     <ul className={styles.navList}>
       <li className={styles.navItem}>
@@ -14,5 +13,3 @@ const Navigation = () => (
     </ul>
   </nav>
 );
-
-export default Navigation;

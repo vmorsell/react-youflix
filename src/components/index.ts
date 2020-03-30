@@ -1,23 +1,11 @@
-import Button from './button/button';
-import FeaturedMovie from './featuredMovie/featuredMovie';
-import Footer from './footer/footer';
-import Header from './header/header';
-import HorizontalMovieScroller from './horizontalMovieScroller/horizontalMovieScroller';
-import Icon from './icon';
-import Layout from './layout/layout';
-import Logotype from './logotype/logotype';
-import Player from './player/player';
-import Playlists from './playlists/playlists';
-
-export {
-  Button,
-  FeaturedMovie,
-  Footer,
-  Header,
-  HorizontalMovieScroller,
-  Icon,
-  Layout,
-  Logotype,
-  Player,
-  Playlists,
-};
+export * from './Button/Button';
+export * from './FeaturedMovie/FeaturedMovie';
+export * from './Footer/Footer';
+export * from './Header/Header';
+export * from './HorizontalMovieScroller/HorizontalMovieScroller';
+export * from './Icon/Icon';
+export * from './Layout/Layout';
+export * from './Logotype/Logotype';
+export * from './Player/Player';
+export * from './PlayerScreenLink/PlayerScreenLink';
+export * from './Playlists/Playlists';

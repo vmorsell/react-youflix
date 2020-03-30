@@ -1,17 +1,17 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
+import { FeaturedMovie, Layout, Playlists } from '../../components';
+import config from '../../config/config';
 
-import { FeaturedMovie, Layout, Playlists } from '../components';
-
-import config from '../config/config';
-
-interface Props extends RouteComponentProps {
+export interface HomeScreenProps extends RouteComponentProps {
   playlists?: Playlist[] | undefined;
   movies?: Movie[] | undefined;
   featuredMovie?: Movie | undefined;
 }
 
-const HomeScreen = (props: Props) => (
+export const HomeScreen: React.FC<HomeScreenProps> = (
+  props: HomeScreenProps
+) => (
   <Layout
     siteTitle={config.siteTitle}
     publisher={config.publisher}
@@ -24,5 +24,3 @@ const HomeScreen = (props: Props) => (
     )}
   </Layout>
 );
-
-export default HomeScreen;

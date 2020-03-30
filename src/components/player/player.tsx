@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link } from '@reach/router';
-
 import { Icon } from '../../components';
-
 import styles from './player.module.scss';
 
-type Props = {
+type PlayerProps = {
   id: string;
 };
 
-const Player = ({ id }: Props) => {
+export const Player: React.FC<PlayerProps> = ({ id }: PlayerProps) => {
   return (
     <div className={styles.player}>
       <iframe
@@ -32,5 +30,3 @@ const Player = ({ id }: Props) => {
     </div>
   );
 };
-
-export default Player;

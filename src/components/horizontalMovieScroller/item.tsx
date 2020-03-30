@@ -1,11 +1,16 @@
 import React from 'react';
-
-import { PlayerScreenLink } from '../../screens/playerScreen';
-import { Icon } from '../../components';
+import { Icon, PlayerScreenLink } from '../../components';
 
 import styles from './item.module.scss';
 
-const Item = ({ duration, id, isNew, tags, thumbnails, title }: Movie) => {
+export const Item: React.FC<Movie> = ({
+  duration,
+  id,
+  isNew,
+  tags,
+  thumbnails,
+  title,
+}: Movie) => {
   const isNewMarker = isNew ? <span className={styles.isNew}>New</span> : null;
 
   /** @type {React.CSSProperties} */
@@ -37,5 +42,3 @@ const Item = ({ duration, id, isNew, tags, thumbnails, title }: Movie) => {
     </PlayerScreenLink>
   );
 };
-
-export default Item;

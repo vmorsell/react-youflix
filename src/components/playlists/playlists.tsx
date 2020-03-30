@@ -1,18 +1,20 @@
 import React from 'react';
-
 import { HorizontalMovieScroller } from '../../components';
 
-export interface Props {
+export interface PlaylistsProps {
   playlists: Playlist[];
   items: Movie[];
 }
 
-const Playlists = ({ playlists, items }: Props) => {
+export const Playlists: React.FC<PlaylistsProps> = ({
+  playlists,
+  items,
+}: PlaylistsProps) => {
   const horizontalScrollers = playlists.map((playlist, index) => (
     <HorizontalMovieScroller
       key={index}
-      items={items.filter((item) => {
-        return item.id === playlist.id;
+      items={items.filter((item: Movie) => {
+        return item.playlistId === playlist.id;
       })}
       title={playlist.title}
     />
@@ -20,5 +22,3 @@ const Playlists = ({ playlists, items }: Props) => {
 
   return <section>{horizontalScrollers}</section>;
 };
-
-export default Playlists;

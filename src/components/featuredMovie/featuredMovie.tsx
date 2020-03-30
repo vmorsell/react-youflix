@@ -1,15 +1,15 @@
 import React from 'react';
-
 import { Button } from '../../components';
-import { PlayerScreenLink } from '../../screens/playerScreen';
-
+import { PlayerScreenLink } from '../../components';
 import styles from './featuredMovie.module.scss';
 
-export interface Props {
+export interface FeaturedMovieProps {
   item: Movie;
 }
 
-const FeaturedMovie = ({ item }: Props) => {
+export const FeaturedMovie: React.FC<FeaturedMovieProps> = ({
+  item,
+}: FeaturedMovieProps) => {
   /** @type {React.CSSProperties} */
   const backgroundImageStyles = item.thumbnails
     ? { backgroundImage: `url(${item.thumbnails.high.url})` }
@@ -22,12 +22,10 @@ const FeaturedMovie = ({ item }: Props) => {
         <p className={styles.synopsis}>{item.description}</p>
         <div className={styles.buttons}>
           <PlayerScreenLink movieId={item.id}>
-            <Button grower={true} text="Play" icon="play" action={() => {}} />
+            <Button grower={true} text="Play" icon="play" action={undefined} />
           </PlayerScreenLink>
         </div>
       </div>
     </section>
   );
 };
-
-export default FeaturedMovie;
